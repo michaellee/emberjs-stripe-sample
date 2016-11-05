@@ -4,7 +4,7 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'emberjs-stripe-sample',
     environment: environment,
-    STRIPE_PUBLISHABLE_KEY: process.env.STRIPE_PUBLISHABLE_KEY,
+    stripePerishableKey: process.env.stripePerishableKey,
     rootURL: '/',
     locationType: 'auto',
     EmberENV: {
