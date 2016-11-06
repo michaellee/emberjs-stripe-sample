@@ -6,9 +6,19 @@ let handler = StripeCheckout.configure({
   image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
   locale: 'auto',
   token: function(token) {
-    console.log(token)
-    // You can access the token ID with `token.id`.
-    // Get the token ID to your server-side code for use.
+    Ember.$.ajax({
+      url: '/api/monies',
+      type: 'POST',
+      contentType: 'application/json',
+      dataType: 'json',
+      data: JSON.stringify({ token: token.id }),
+      success: function (jsonData) {
+        console.log(jsonData)
+      },
+      error: function () {
+        alert('invalid charge.')
+      }
+    })
   }
 })
 
